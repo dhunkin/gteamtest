@@ -1,0 +1,379 @@
+@import 'nib'
+
+global-reset()
+/* *****************************
+ *		Variables
+ * *****************************/
+ 
+
+ /* *****************************
+ *		Layout
+ * *****************************/
+.gcol-12
+	width 100%
+
+.gcol-3
+	width (100/3)%
+
+.gcol-2 
+	width (100/6)%
+
+.gcol-1
+	width (100/12)%
+
+.gcol-1-5
+	width (100/12 + 100/24)%
+
+.gcol-0-5
+	width (100/24)%
+
+ /* *****************************
+ *		Main list styles
+ * *****************************/
+body
+	font-family 'Helvetica Neue',Helvetica,'Lucida Grande',Arial,sans-serif
+	font-size 15px
+	color #0f0f0f
+.main-list-wrapper
+	width 1080px
+	margin 36px auto 24px
+	border 1px solid #a6b7cd
+	background linear-gradient(top left, #f5f8fb, #fdfefe, #fdfefe)
+	padding 36px 18px 36px 18px
+.list-header
+	margin-bottom 12px
+.list-header-item
+	text-align center
+	display inline-block
+.list-header-item:first-child
+	text-align left
+
+/* *****************************
+ *		List items styles
+ * *****************************/
+.list-item-wrapper
+	margin 6px 0
+
+.list-item-trigger
+	padding 3px 5px 5px
+	height 27px
+	cursor pointer
+
+.list-item
+	text-align center
+	display inline-block
+	vertical-align middle
+	&:first-child
+		text-align left
+.list-item.item-id
+	text-align left
+
+.item-bar
+	display inline-block
+	width 40px
+	height 25px
+	border 1px solid #d4d4d4
+	background-color #e1e1e1
+	box-shadow 1px 2px 3px rgba(0,0,0,.3)
+	&.positive-sign
+		background-color #538135
+.item-metrics
+	.critical-sign
+	.negative-sign
+		background-color #c00000
+.item-build
+.item-utest
+.item-ftest
+	.negative-sign
+		background-color #538135
+
+.firewall-accepted
+.build-complete
+	border 1px solid #62983d
+	background linear-gradient(left, #ebf1e9 0%, #feffff 60%)  
+	.list-item
+		color #375623
+
+.build-complete
+	.item-icon
+		display inline-block
+		width 26px
+		height 22px
+		background-image url("../images/build_complete.png")
+
+.build-fail
+.firewall-rejected
+	border 1px solid #c00000
+	background linear-gradient(left, #fce0e0 0%, #feffff 50%)  
+	.list-item
+		color #c00000
+
+.firewall-rejected
+	.item-icon
+		display inline-block
+		width 26px
+		height 21px
+		background-image url("../images/fw_rejected.jpg")
+
+.firewall-accepted
+	.item-icon
+		display inline-block
+		width 26px
+		height 21px
+		background-image url("../images/fw_accepted.jpg")		
+
+.build-pending
+	border 1px solid #ccc
+	background linear-gradient(left, #ecf0f8 0%, #feffff 40%)  
+	.list-item
+		color #949494
+	.item-icon
+		display inline-block
+		width 26px
+		height 22px
+		background-image url("../images/build_pending.png")
+.firewall-running
+	border 1px solid #4f88bb
+	background linear-gradient(left, #eaeff7 0%, #feffff 40%)  
+	.list-item
+		color #203864
+	.item-icon
+		display inline-block
+		width 26px
+		height 21px
+		background-image url("../images/fw_running.jpg")
+
+.info-sec
+	width 155px
+	height 151px
+	display inline-block
+	padding 3px 10px
+	border 2px solid #62983d
+	vertical-align middle
+	margin 6px 15px 24px
+	background linear-gradient(top left, #ebf1e9 0%, #feffff 40%)
+	box-shadow 3px 3px 8px rgba(0,0,0,.5)
+	position relative
+	&:last-child
+		border none
+		background none
+		box-shadow none
+		padding 0
+		width 175px
+	&:last-child:hover
+		box-shadow none
+		top 0
+	&.bad-metrics
+		border 1px solid #c00000
+		box-shadow none
+		background linear-gradient(top left, #fce0e0 0%, #feffff 50%)
+		width 155px
+		padding 3px 10px
+	&.bad-metrics:hover
+		box-shadow inset 2px 2px 3px rgba(0,0,0,.3)
+		top -1px
+	&.build
+		text-align center
+	&:hover
+		box-shadow inset 2px 2px 3px rgba(0,0,0,.3)
+		top -1px
+	.info-sec-header
+		color #62983d
+		font-weight bold
+		margin 0
+		text-align left
+.bad-metrics
+		.info-sec-header
+			color #c00000
+
+.metrics-item
+	width 75px
+	height 75px
+	float left
+	text-align center
+	margin-top 3px
+	.metrics-label
+		font-size 12px
+		color #100e0b
+	.metrics-img
+		display block
+		font-size 18px
+		width 38px
+		height 28px
+		margin 0 auto
+		padding-top 16px
+		padding-left 2px
+		color #fff
+		background-image url(../images/arrow_up_pos.png)
+		&.negative
+			background-image url(../images/arrow_down_neg.png)
+		&.security
+		&.workmanship
+			width 42px
+			height 28px
+			padding-top 12px
+			padding-left 2px
+			color #000
+			background-image url(../images/arrow_right_pos.png)
+			&.negative
+				color #fff
+				background-image url(../images/arrow_left_neg.png)
+.build-item
+	float left
+	width 67px
+	height 112px
+	padding-top 10px
+	text-align center
+	&.release
+		float right
+	.build-label
+		color #1e4a73
+		font-size 13px
+.start-date
+	font-size 12px
+.info-chart-wrapper
+	height 108px
+	.info-chart
+		float left
+		width 87px
+		height 93px
+		padding-top 15px
+	.pie-chart
+		width 80px
+		height 80px
+	.info-stat
+		float right
+		width 63px
+		height 72px
+		padding-top 36px
+	.info-stat-value
+		font-size 32px
+		color #a4c943
+	.info-stat-label
+		font-size 10px
+		color #100e0b
+		text-align center
+.ftest
+	.info-stat-value
+		font-size 32px
+		color #bf9000
+.test-coverage
+	position relative
+.test-coverage-html5-bar 
+	-webkit-appearance none
+	-moz-appearance: none;
+	appearance none
+	border none
+	width 100% 
+	height 27px
+	color #c5e0b3
+	&::-webkit-progress-value
+		background-color #c5e0b3
+	&::-webkit-progress-bar
+		background-color #f7cbac
+.test-coverage-label
+	font-size 14px
+	font-weight bold
+	color #375623
+	position absolute
+	top 2px
+	left 45%
+.test-coverage-text
+	font-size 10px
+	color #100e0b
+	position absolute
+	top 16px
+	left 30%
+.result-header
+	text-align center
+	color #0f0f0f
+	font-size 15px
+	margin 2px 0 20px
+.firewall-accepted-details
+.firewall-rejected-details
+.build-complete-details
+	border 1px solid #d4d4d4
+	text-decoration none
+	letter-spacing 1px
+	background-color #5b9bd5
+	color #feffff
+	font-size 13px
+	display inline-block
+	transition-duration .1s
+	transition-property box-shadow
+	box-shadow inset 0 0 0 rgba(0, 0, 0, 0.6), 0 0 1px rgba(0, 0, 0, 0)
+	transform translateZ(0)
+.firewall-accepted-details:hover
+.firewall-accepted-details:active
+.firewall-rejected-details:hover
+.firewall-rejected-details:active
+.build-complete-details:hover
+.build-complete-details:active
+	box-shadow inset 2px 2px 2px rgba(0, 0, 0, 0.6), 0 0 1px rgba(0, 0, 0, 0)
+.firewall-accepted
+	.status
+		color #fec000
+		font-size 15px
+		text-align center
+	.reason
+		color #fec000
+		font-size 28px
+		text-align center
+	.firewall-accepted-details
+		background-image url(../images/loop_small.png)
+		background-repeat no-repeat
+		background-position 9px 6px
+		padding 7px 9px 6px 30px
+		margin-top 35px
+.firewall-rejected
+	.status
+		color #c00000
+		font-size 15px
+		text-align center
+	.reason
+		color #c00000
+		font-size 28px
+		text-align center
+	.firewall-rejected-details
+		padding 7px 24px
+		margin-top 18px
+.build-complete
+	.status
+		color #375623
+		font-size 28px
+		text-align center
+	.build-complete-details
+		padding 7px 20px
+		margin-top 18px
+	.helper-text
+		color #375623
+		font-size 14px
+		padding-left 9px
+	.env-select
+		width 90px
+		height 21px
+		overflow hidden
+		background url(../images/select_arrow.jpg) no-repeat right #fff
+		border 1px solid #4f88bb
+		position relative
+		box-shadow inset 1px 1px 3px rgba(79,136,187,.3)
+		margin 6px 66px
+		select
+			background transparent
+			color #4f88bb
+			width 118px
+			padding 1px 4px
+			font-size 13px
+			line-height 1.2
+			border 0
+			border-radius 0
+			height 21px
+			position absolute
+			top 0
+			left 0
+			outline none
+			outline-offset -2px
+			-o-transform rotate(0)
+			-webkit-appearance none
+
+
