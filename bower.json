@@ -8,10 +8,11 @@
     "angular-resource": "~1.2.0",
     "angular-animate": "~1.2.0",
     "angular-route": "~1.2.0",
-    "jquery": "~1.11.1"
+    "angular-mocks": "~1.2.0",
+    "jquery": "~1.11.1",
+    "jqplot": "*"
   },
   "devDependencies": {
-    "angular-mocks": "~1.2.0",
     "angular-scenario": "~1.2.0"
   },
   "appPath": "app"

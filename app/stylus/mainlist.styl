@@ -46,6 +46,7 @@ body
 	text-align center
 	display inline-block
 .list-header-item:first-child
+.list-header-item:last-child
 	text-align left
 
 /* *****************************
@@ -94,11 +95,16 @@ body
 	.list-item
 		color #375623
 
+.item-icon
+	display inline-block
+	width 26px
+	height 27px
+	background-repeat no-repeat
+	background-color transparent
+	background-position 0 3px
+
 .build-complete
 	.item-icon
-		display inline-block
-		width 26px
-		height 22px
 		background-image url("../images/build_complete.png")
 
 .build-fail
@@ -110,17 +116,11 @@ body
 
 .firewall-rejected
 	.item-icon
-		display inline-block
-		width 26px
-		height 21px
 		background-image url("../images/fw_rejected.jpg")
 
 .firewall-accepted
 	.item-icon
-		display inline-block
-		width 26px
-		height 21px
-		background-image url("../images/fw_accepted.jpg")		
+		background-image url("../images/fw_accepted.jpg")	
 
 .build-pending
 	border 1px solid #ccc
@@ -128,9 +128,6 @@ body
 	.list-item
 		color #949494
 	.item-icon
-		display inline-block
-		width 26px
-		height 22px
 		background-image url("../images/build_pending.png")
 .firewall-running
 	border 1px solid #4f88bb
@@ -138,9 +135,6 @@ body
 	.list-item
 		color #203864
 	.item-icon
-		display inline-block
-		width 26px
-		height 21px
 		background-image url("../images/fw_running.jpg")
 
 .info-sec
@@ -154,12 +148,14 @@ body
 	background linear-gradient(top left, #ebf1e9 0%, #feffff 40%)
 	box-shadow 3px 3px 8px rgba(0,0,0,.5)
 	position relative
+	cursor pointer
 	&:last-child
 		border none
 		background none
 		box-shadow none
 		padding 0
 		width 175px
+		cursor auto
 	&:last-child:hover
 		box-shadow none
 		top 0
@@ -235,12 +231,13 @@ body
 	height 108px
 	.info-chart
 		float left
-		width 87px
-		height 93px
-		padding-top 15px
+		width 91px
+		height 108px
 	.pie-chart
-		width 80px
-		height 80px
+		width 90px
+		height 110px
+		font-size 10px
+		color #000
 	.info-stat
 		float right
 		width 63px
@@ -375,5 +372,5 @@ body
 			outline-offset -2px
 			-o-transform rotate(0)
 			-webkit-appearance none
-
+			cursor pointer
 

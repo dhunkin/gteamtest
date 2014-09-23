@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-	.module('gtestApp.slide.anim', [])
+	.module('gtestApp.common.anim', [])
 	.animation('.slide', function() {
 		var NgHideClassName = 'ng-hide';
 		return {

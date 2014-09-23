@@ -16,9 +16,8 @@ angular
     'ngRoute',
     'ngMockE2E',
     'gtestApp.listItems.srv',
-    'gtestApp.googleChartPromise.fac',
     'gtestApp.itemPieChart.dir',
-    'gtestApp.slide.anim'
+    'gtestApp.common.anim'
   ])
   .run(function($httpBackend) {
     $httpBackend.whenGET('/items').respond(items);
