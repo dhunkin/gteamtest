@@ -4,9 +4,9 @@ gteamtest
 Installation requirements
 -------------------------
 
-node.js
-npm
-bower ( 'npm install -g bower'  - to install bower)
+ - node.js
+ - npm
+ - bower ( 'npm install -g bower'  - to install bower)
 
 
 Installation
