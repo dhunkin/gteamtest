@@ -22,3 +22,9 @@ Result
 
 'dist' folder in root folder - ready to deploy.
 
+
+Local environment
+-----------------
+
+To run localy: 'grunt serve' (from the root folder)
+
