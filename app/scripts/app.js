@@ -36,7 +36,7 @@ angular
     };
 
     var isFinished = function(item) {
-      return item.val >= 105;
+      return item.val >= 100;
     };
 
     var res = {
@@ -44,18 +44,18 @@ angular
     };
 
     var stop = $interval(function() {
-        if(!isFinished(stages['metrics'])) {
-          stages['metrics'].val += 5;
-        }
-        if(isFinished(stages['metrics']) && !isFinished(stages['build'])) {
-          stages['build'].val += 5;
-        } else if(isFinished(stages['build']) && !isFinished(stages['utest'])) {
-          stages['utest'].val += 5;
-        } else if(isFinished(stages['utest']) && !isFinished(stages['ftest'])) {
-          stages['ftest'].val += 5;
-        } else if(isFinished(stages['ftest'])) {
-          $interval.cancel(stop);
-        }
+      if (!isFinished(stages['metrics'])) {
+        stages['metrics'].val += 5;
+      }
+      if (isFinished(stages['metrics']) && !isFinished(stages['build'])) {
+        stages['build'].val += 5;
+      } else if (isFinished(stages['build']) && !isFinished(stages['utest'])) {
+        stages['utest'].val += 5;
+      } else if (isFinished(stages['utest']) && !isFinished(stages['ftest'])) {
+        stages['ftest'].val += 5;
+      } else if (isFinished(stages['ftest'])) {
+        $interval.cancel(stop);
+      }
     }, 600);
 
     $httpBackend.whenGET('/items').respond(items);
