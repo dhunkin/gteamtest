@@ -8,42 +8,53 @@
  * Controller of the gtestApp
  */
 angular.module('gtestApp')
-	.controller('listCtrl', function($scope, ListItems) {
-		var a = ListItems.getItems();
-		a.success(function(data) {
+	.controller('listCtrl', function($scope, ListItems, States) {
+		var itemsPromise = ListItems.getItems();
+		itemsPromise.success(function(data) {
 			$scope.items = data.items;
 		});
 
+		$scope.getStateLebel = function(itemState) {
+			return States[itemState] || '';
+		};
+
 		$scope.getItemClass = function(item) {
 			if (item.type === 'build') {
-				if (item.state === 'Complete') {
-					return 'build-complete';
-				} else if (item.state === 'Fail') {
-					return 'build-fail';
-				} else if (item.state === 'Pending') {
-					return 'build-pending';
+				switch (item.state) {
+					case 'complete':
+						return 'build-complete';
+					case 'fail':
+						return 'build-fail';
+					case 'pending':
+						return 'build-pending';
+					default:
+						return '';
 				}
 			} else if (item.type === 'firewall') {
-				if (item.state === 'Accepted') {
-					return 'firewall-accepted';
-				} else if (item.state === 'Rejected') {
-					return 'firewall-rejected';
-				} else if (item.state === 'Running') {
-					return 'firewall-running';
+				switch (item.state) {
+					case 'accepted':
+						return 'firewall-accepted';
+					case 'rejected':
+						return 'firewall-rejected';
+					case 'running':
+						return 'firewall-running';
+					default:
+						return '';
 				}
 			}
 		};
 
 		$scope.getBarClass = function(item) {
-			if (item.state === 'Complete' || item.state === 'Accepted') {
+			if (item.state === 'complete' || item.state === 'accepted') {
 				return 'positive-sign';
-			} else if (item.state === 'Rejected') {
+			} else if (item.state === 'rejected') {
 				if (item.metrics && item.metrics.security && !item.metrics.security.positive) {
 					return 'critical-sign';
 				} else {
 					return 'negative-sign';
 				}
 			}
+			return '';
 		};
 
 		$scope.isCritical = function(item) {
@@ -62,7 +73,7 @@ angular.module('gtestApp')
 		};
 
 		$scope.expandMe = function(item) {
-			if( !(item.type === 'build') || !(item.state === 'Pending') ) {
+			if ( (!(item.type === 'build') || !(item.state === 'pending')) &&  (!(item.type === 'firewall') || !(item.state === 'running'))) {
 				item.expanded = (item.expanded ? !item.expanded : true) && $scope.collapseAll($scope.items);
 			}
 		};

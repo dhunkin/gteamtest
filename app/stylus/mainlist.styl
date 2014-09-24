@@ -5,6 +5,7 @@ global-reset()
  *		Variables
  * *****************************/
  
+ list-red = #c00000
 
  /* *****************************
  *		Layout
@@ -60,6 +61,7 @@ body
 	height 27px
 	cursor pointer
 
+.firewall-running
 .build-pending
 	.list-item-trigger
 		cursor not-allowed
@@ -80,12 +82,23 @@ body
 	border 1px solid #d4d4d4
 	background-color #e1e1e1
 	box-shadow 1px 2px 3px rgba(0,0,0,.3)
+	position relative
 	&.positive-sign
 		background-color #538135
+
+.firewall-running
+	.item-bar-value.running
+		position absolute
+		top 0
+		left 0
+		height 25px
+		width 0%
+		background-color #5b9bd5
+
 .item-metrics
 	.critical-sign
 	.negative-sign
-		background-color #c00000
+		background-color list-red
 .item-build
 .item-utest
 .item-ftest
@@ -113,10 +126,10 @@ body
 
 .build-fail
 .firewall-rejected
-	border 1px solid #c00000
+	border 1px solid list-red
 	background linear-gradient(left, #fce0e0 0%, #feffff 50%)  
 	.list-item
-		color #c00000
+		color list-red
 
 .firewall-rejected
 	.item-icon
@@ -164,7 +177,7 @@ body
 		box-shadow none
 		top 0
 	&.bad-metrics
-		border 1px solid #c00000
+		border 1px solid list-red
 		box-shadow none
 		background linear-gradient(top left, #fce0e0 0%, #feffff 50%)
 		width 155px
@@ -184,7 +197,7 @@ body
 		text-align left
 .bad-metrics
 		.info-sec-header
-			color #c00000
+			color list-red
 
 .metrics-item
 	width 75px
@@ -328,11 +341,11 @@ body
 		margin-top 35px
 .firewall-rejected
 	.status
-		color #c00000
+		color list-red
 		font-size 15px
 		text-align center
 	.reason
-		color #c00000
+		color list-red
 		font-size 28px
 		text-align center
 	.firewall-rejected-details

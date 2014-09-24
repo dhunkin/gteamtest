@@ -8,13 +8,12 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/jqplot/jquery.jqplot.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="bower_components/jqplot/jquery.jqplot.min.css" />
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   </head>
   <body id="ng-app" ng-app="gtestApp">
     <!--[if lt IE 7]>
@@ -35,25 +34,33 @@
           <!-- List item -->
           <div class="list-item-wrapper" ng-repeat="item in items" ng-class="getItemClass(item)">
               <!-- List item collapsed -->
-              <div class="list-item-trigger" ng-click="item.expanded = item.expanded ? !item.expanded : true">
+              <div class="list-item-trigger" ng-click="expandMe(item)">
                 <span class="list-item gcol-0-5">
                   <span class="item-icon"></span>
                 </span>
                 <span class="list-item item-id gcol-1-5">{{ item.itemId }}</span>
                 <span class="list-item item-owner gcol-2">{{ item.owner }}</span>
                 <span class="list-item item-starttime gcol-2">{{ item.timeStarted }}</span>
-                <span class="list-item item-state gcol-1">{{ item.state }}</span>
+                <span class="list-item item-state gcol-1">{{ getStateLebel(item.state) }}</span>
                 <span class="list-item item-metrics gcol-1 fade" ng-show="!item.expanded">
-                  <span class="item-bar" ng-class="getBarClass(item)"></span>
+                  <span class="item-bar" ng-class="getBarClass(item)" item-bar-progress="metrics" item="item">
+                    <span class="item-bar-value"></span>
+                  </span>
                 </span>
                 <span class="list-item item-build gcol-1 fade" ng-show="!item.expanded">
-                  <span class="item-bar" ng-class="getBarClass(item)"></span>
+                  <span class="item-bar" ng-class="getBarClass(item)" item-bar-progress="build" item="item">
+                    <span class="item-bar-value"></span>
+                  </span>
                 </span>
                 <span class="list-item item-utest gcol-1 fade" ng-show="!item.expanded">
-                  <span class="item-bar" ng-class="getBarClass(item)"></span>
+                  <span class="item-bar" ng-class="getBarClass(item)" item-bar-progress="utest" item="item">
+                    <span class="item-bar-value"></span>
+                  </span>
                 </span>
                 <span class="list-item item-ftest gcol-1 fade" ng-show="!item.expanded">
-                  <span class="item-bar" ng-class="getBarClass(item)"></span>
+                  <span class="item-bar" ng-class="getBarClass(item)" item-bar-progress="ftest" item="item">
+                    <span class="item-bar-value"></span>
+                  </span>
                 </span>
               </div>
               <!-- End of list item collapsed -->
@@ -149,9 +156,9 @@
                   <h3 class="result-header">Result:</h3>
                   <p class="status">{{ item.result.status }}</p>
                   <p class="reason">{{ item.result.reason }}</p>
-                  <a class="details firewall-accepted-details" href="javascript:;" ng-if="item.type === 'firewall' && item.state === 'Accepted'">Merged Build</a>
-                  <a class="details firewall-rejected-details" href="javascript:;" ng-if="item.type === 'firewall' && item.state === 'Rejected'">Find issues</a>
-                  <div ng-if="item.type === 'build'&& item.state === 'Complete'">
+                  <a class="details firewall-accepted-details" href="javascript:;" ng-if="item.type === 'firewall' && item.state === 'accepted'">Merged Build</a>
+                  <a class="details firewall-rejected-details" href="javascript:;" ng-if="item.type === 'firewall' && item.state === 'rejected'">Find issues</a>
+                  <div ng-if="item.type === 'build'&& item.state === 'complete'">
                     <a class="details build-complete-details" href="javascript:;">Deploy</a>
                     <span class="helper-text">to:</span>
                     <div class="env-select">
