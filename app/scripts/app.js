@@ -37,7 +37,7 @@ angular
     };
 
     var isFinished = function(item) {
-      return item.val >= 100;
+      return item.val > 100;
     };
 
     var stop = $interval(function() {
