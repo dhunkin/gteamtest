@@ -15,30 +15,30 @@ angular.module('gtestApp')
 		});
 
 		$scope.getItemClass = function(item) {
-			if(item.type === 'build') {
-				if(item.state === 'Complete') {
+			if (item.type === 'build') {
+				if (item.state === 'Complete') {
 					return 'build-complete';
-				} else if(item.state === 'Fail') {
+				} else if (item.state === 'Fail') {
 					return 'build-fail';
-				} else if(item.state === 'Pending') {
+				} else if (item.state === 'Pending') {
 					return 'build-pending';
 				}
-			} else if(item.type === 'firewall') {
-				if(item.state === 'Accepted') {
+			} else if (item.type === 'firewall') {
+				if (item.state === 'Accepted') {
 					return 'firewall-accepted';
-				} else if(item.state === 'Rejected') {
+				} else if (item.state === 'Rejected') {
 					return 'firewall-rejected';
-				} else if(item.state === 'Running') {
+				} else if (item.state === 'Running') {
 					return 'firewall-running';
 				}
 			}
 		};
 
 		$scope.getBarClass = function(item) {
-			if(item.state === 'Complete' || item.state === 'Accepted') {
+			if (item.state === 'Complete' || item.state === 'Accepted') {
 				return 'positive-sign';
-			} else if(item.state === 'Rejected') {
-				if(item.metrics && item.metrics.security && !item.metrics.security.positive) {
+			} else if (item.state === 'Rejected') {
+				if (item.metrics && item.metrics.security && !item.metrics.security.positive) {
 					return 'critical-sign';
 				} else {
 					return 'negative-sign';
@@ -59,5 +59,18 @@ angular.module('gtestApp')
 
 		$scope.showDetails = function(item) {
 			alert('There are no detail view here.');
+		};
+
+		$scope.expandMe = function(item) {
+			if( !(item.type === 'build') || !(item.state === 'Pending') ) {
+				item.expanded = (item.expanded ? !item.expanded : true) && $scope.collapseAll($scope.items);
+			}
+		};
+
+		$scope.collapseAll = function(items) {
+			$.map(items, function(item) {
+				item.expanded = false;
+			});
+			return true;
 		};
 	});

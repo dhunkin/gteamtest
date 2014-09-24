@@ -11,10 +11,12 @@ angular
 				var failed = (scope.item && scope.item.failed) || 0;
 				var passed = (scope.item && scope.item.passed) || 0;
 
-				$(elem).jqplot([[
-					['Failed', failed],
-					['Passed', passed]
-				]], {
+				$(elem).jqplot([
+					[
+						['Failed', failed],
+						['Passed', passed]
+					]
+				], {
 					title: '',
 					seriesDefaults: {
 						renderer: $.jqplot.PieRenderer,
@@ -28,7 +30,7 @@ angular
 							shadowAngle: 80,
 							shadowOffset: 1,
 							shadowWidth: 2,
-							shadowAlpha: .04,
+							shadowAlpha: 0.04,
 							dataLabels: 'value'
 						}
 					},
@@ -51,7 +53,9 @@ angular
 						bottom: 7,
 						right: 2
 					},
-					legend: { show:false }
+					legend: {
+						show: false
+					}
 				});
 			}
 		};

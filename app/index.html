@@ -32,7 +32,9 @@
             <span class="list-header-item gcol-1">Unit Test</span>
             <span class="list-header-item gcol-1-5">Functional Test</span>
           </div>  
+          <!-- List item -->
           <div class="list-item-wrapper" ng-repeat="item in items" ng-class="getItemClass(item)">
+              <!-- List item collapsed -->
               <div class="list-item-trigger" ng-click="item.expanded = item.expanded ? !item.expanded : true">
                 <span class="list-item gcol-0-5">
                   <span class="item-icon"></span>
@@ -54,7 +56,10 @@
                   <span class="item-bar" ng-class="getBarClass(item)"></span>
                 </span>
               </div>
+              <!-- End of list item collapsed -->
+              <!-- Info section of list item -->
               <div class="info slide" ng-show="item.expanded">
+                <!-- Metrics widget -->
                 <div class="info-sec metrics" ng-class="{ 'bad-metrics': isBadMetrics(item) }" ng-click="showDetails(item)">
                   <h3 class="info-sec-header">Metrics</h3>
                   <div class="metrics-item">
@@ -78,6 +83,8 @@
                     <span class="metrics-label">Workmanship</span>
                   </div>
                 </div>
+                <!-- End of metrics widget -->
+                <!-- Build widget -->
                 <div class="info-sec build" ng-if="!isCritical(item)"  ng-click="showDetails(item)">
                   <h3  class="info-sec-header">Build</h3>
                   <div class="build-item" ng-if="item.build && item.build.debug">
@@ -90,6 +97,8 @@
                   </div>
                   <span class="start-date">{{ item.build.when }}</span>
                 </div>
+                <!-- End of build widget -->
+                <!-- Unit tests widget -->
                 <div class="info-sec utest" ng-if="!isCritical(item)" ng-click="showDetails(item)">
                   <h3  class="info-sec-header">Unit Test</h3>
                   <div class="info-chart-wrapper">
@@ -111,6 +120,8 @@
                     <span class="test-coverage-text">code covered</span>
                   </div>
                 </div>
+                <!-- End of unit tests widget -->
+                <!-- Functional tests widget -->
                 <div class="info-sec ftest" ng-if="!isCritical(item)" ng-click="showDetails(item)">
                   <h3  class="info-sec-header">Functional Test</h3>
                   <div class="info-chart-wrapper">
@@ -132,6 +143,8 @@
                     <span class="test-coverage-text">code covered</span>
                   </div>
                 </div>
+                <!-- End of functional tests widget -->
+                <!-- Status widget -->
                 <div class="info-sec status" ng-if="!isCritical(item)">
                   <h3 class="result-header">Result:</h3>
                   <p class="status">{{ item.result.status }}</p>
@@ -150,20 +163,12 @@
                     </div>
                   </div>
                 </div>
+                <!-- End of status widget -->
               </div>
+              <!-- End of info section -->
           </div>
+          <!-- End of list item -->
     </div>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
