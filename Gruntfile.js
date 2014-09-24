@@ -363,6 +363,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-stylus');
+  grunt.loadNpmTasks('grunt-stylus-sprite');
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {

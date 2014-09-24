@@ -73,7 +73,7 @@ angular.module('gtestApp')
 		};
 
 		$scope.expandMe = function(item) {
-			if ( (!(item.type === 'build') || !(item.state === 'pending')) &&  (!(item.type === 'firewall') || !(item.state === 'running'))) {
+			if ((!(item.type === 'build') || !(item.state === 'pending')) && (!(item.type === 'firewall') || !(item.state === 'running'))) {
 				item.expanded = (item.expanded ? !item.expanded : true) && $scope.collapseAll($scope.items);
 			}
 		};

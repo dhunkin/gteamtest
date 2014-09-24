@@ -17,6 +17,7 @@ angular
     'ngMockE2E',
     'gtestApp.listItems.srv',
     'gtestApp.itemPieChart.dir',
+    'gtestApp.itemBarProgress.dir',
     'gtestApp.common.anim'
   ])
   .run(function($httpBackend, $interval) {
@@ -37,10 +38,6 @@ angular
 
     var isFinished = function(item) {
       return item.val >= 100;
-    };
-
-    var res = {
-      val: 0
     };
 
     var stop = $interval(function() {

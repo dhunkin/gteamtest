@@ -2,8 +2,8 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
+    <title>gTeam Test</title>
+    <meta name="description" content="test">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -96,11 +96,11 @@
                 <div class="info-sec build" ng-if="!isCritical(item)"  ng-click="showDetails(item)">
                   <h3  class="info-sec-header">Build</h3>
                   <div class="build-item" ng-if="item.build && item.build.debug">
-                    <img src="images/pc_big.png" alt="pc-picture">
+                    <div class="build-image"></div>
                     <span class="build-label">Debug</span>
                   </div>
                   <div class="build-item release" ng-if="item.build && item.build.release">
-                    <img src="images/pc_big.png" alt="pc-picture">
+                    <div class="build-image"></div>
                     <span class="build-label">Release</span>
                   </div>
                   <span class="start-date">{{ item.build.when }}</span>
@@ -188,9 +188,6 @@
 
     <script src="items/items.js"></script>
 
-    <!--[if lt IE 9]><![endif]-->
-    
-
     <!-- build:js(.) scripts/vendor.js -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/jqplot/jquery.jqplot.min.js"></script>
@@ -206,6 +203,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/services/listItems.srv.js"></script>
         <script src="scripts/directives/itemPieChart.dir.js"></script>
+        <script src="scripts/directives/itemBarProgress.dir.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/animations/common.anim.js"></script>
         <!-- endbuild -->
